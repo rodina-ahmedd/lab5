@@ -47,12 +47,12 @@ public class login extends javax.swing.JFrame {
         });
 
         UserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        UserName.setForeground(new java.awt.Color(51, 102, 255));
+        UserName.setForeground(new java.awt.Color(255, 153, 204));
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserName.setText("User Name:");
 
         Password.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Password.setForeground(new java.awt.Color(51, 102, 255));
+        Password.setForeground(new java.awt.Color(255, 153, 204));
         Password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Password.setText("Password:");
 

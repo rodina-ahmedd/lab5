@@ -27,40 +27,84 @@ public class AddStudent extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        StudentName = new javax.swing.JLabel();
+        textstudentname = new javax.swing.JTextField();
+        Age = new javax.swing.JLabel();
+        Gender = new javax.swing.JLabel();
+        optiongender = new javax.swing.JComboBox<>();
+        Department = new javax.swing.JLabel();
+        textstudentAge = new javax.swing.JTextField();
+        textdepartment = new javax.swing.JTextField();
+        textgpa = new javax.swing.JTextField();
+        Gpa = new javax.swing.JLabel();
+        Add = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
         jLabel1.setText("Add Student");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        StudentName.setBackground(new java.awt.Color(255, 255, 255));
+        StudentName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        StudentName.setForeground(new java.awt.Color(153, 153, 255));
+        StudentName.setText("Student Name:");
 
-        jTextField1.setText("ID:");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textstudentname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textstudentnameActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("ID:");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Age.setBackground(new java.awt.Color(255, 255, 255));
+        Age.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Age.setForeground(new java.awt.Color(153, 153, 255));
+        Age.setText("Age:");
+
+        Gender.setBackground(new java.awt.Color(255, 255, 255));
+        Gender.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Gender.setForeground(new java.awt.Color(153, 153, 255));
+        Gender.setText("Gender:");
+
+        optiongender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        optiongender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                optiongenderActionPerformed(evt);
             }
         });
 
-        jTextField3.setText("ID:");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        Department.setBackground(new java.awt.Color(255, 255, 255));
+        Department.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Department.setForeground(new java.awt.Color(153, 153, 255));
+        Department.setText("Department:");
+
+        textstudentAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                textstudentAgeActionPerformed(evt);
             }
         });
+
+        textdepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textdepartmentActionPerformed(evt);
+            }
+        });
+
+        textgpa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textgpaActionPerformed(evt);
+            }
+        });
+
+        Gpa.setBackground(new java.awt.Color(255, 255, 255));
+        Gpa.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Gpa.setForeground(new java.awt.Color(153, 153, 255));
+        Gpa.setText("GPA:");
+
+        Add.setBackground(new java.awt.Color(204, 204, 204));
+        Add.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Add.setForeground(new java.awt.Color(102, 102, 255));
+        Add.setText("Add");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,55 +113,91 @@ public class AddStudent extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(52, Short.MAX_VALUE))
+                            .addComponent(StudentName)
+                            .addComponent(Gender, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Age, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Department, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Gpa, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(79, 79, 79)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textdepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textstudentAge, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(optiongender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textstudentname, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textgpa, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(144, 144, 144)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Add))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(27, 27, 27)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(StudentName)
+                    .addComponent(textstudentname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Age)
+                    .addComponent(textstudentAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Gender)
+                    .addComponent(optiongender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Department)
+                    .addComponent(textdepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                    .addComponent(Gpa)
+                    .addComponent(textgpa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(Add)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void textstudentnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textstudentnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_textstudentnameActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void optiongenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optiongenderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_optiongenderActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void textstudentAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textstudentAgeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_textstudentAgeActionPerformed
+
+    private void textdepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textdepartmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textdepartmentActionPerformed
+
+    private void textgpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textgpaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textgpaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Add;
+    private javax.swing.JLabel Age;
+    private javax.swing.JLabel Department;
+    private javax.swing.JLabel Gender;
+    private javax.swing.JLabel Gpa;
+    private javax.swing.JLabel StudentName;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JComboBox<String> optiongender;
+    private javax.swing.JTextField textdepartment;
+    private javax.swing.JTextField textgpa;
+    private javax.swing.JTextField textstudentAge;
+    private javax.swing.JTextField textstudentname;
     // End of variables declaration//GEN-END:variables
 }
