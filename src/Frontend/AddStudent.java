@@ -4,6 +4,8 @@
  */
 package Frontend;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mo
@@ -105,6 +107,11 @@ public class AddStudent extends javax.swing.JPanel {
         Add.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Add.setForeground(new java.awt.Color(102, 102, 255));
         Add.setText("Add");
+        Add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -184,6 +191,29 @@ public class AddStudent extends javax.swing.JPanel {
     private void textgpaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textgpaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textgpaActionPerformed
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+        // TODO add your handling code here:
+        String name=textstudentname.getText().trim();
+        String ageStr=textstudentAge.getText().trim();
+        String gender=optiongender.getSelectedItem().toString();
+        String department=textdepartment.getText().trim();
+        String gpaStr=textgpa.getText().trim();
+        if (name.isEmpty() || ageStr.isEmpty() || department.isEmpty() || gpaStr.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Please fill all fields!", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+        int age;
+        double gpa;
+        try{
+        age=Integer.parseInt(ageStr);
+        gpa=Double.parseDouble(gpaStr);
+        } 
+        catch (NumberFormatException e){
+        JOptionPane.showMessageDialog(this, "Age and GPA must be numeric!", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    }//GEN-LAST:event_AddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
