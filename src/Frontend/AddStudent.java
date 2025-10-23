@@ -200,17 +200,19 @@ public class AddStudent extends javax.swing.JPanel {
         String department=textdepartment.getText().trim();
         String gpaStr=textgpa.getText().trim();
         if (name.isEmpty() || ageStr.isEmpty() || department.isEmpty() || gpaStr.isEmpty()){
-        JOptionPane.showMessageDialog(this, "Please fill all fields!", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
+            JOptionPane.showMessageDialog(this, "Please fill all fields!", "Error", JOptionPane.ERROR_MESSAGE);
+          return;
     }
         int age;
         double gpa;
         try{
-        age=Integer.parseInt(ageStr);
-        gpa=Double.parseDouble(gpaStr);
+            age=Integer.parseInt(ageStr);
+            gpa=Double.parseDouble(gpaStr);
         } 
         catch (NumberFormatException e){
-        JOptionPane.showMessageDialog(this, "Age and GPA must be numeric!", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Invalid Age", "Error", JOptionPane.ERROR_MESSAGE);
+        
+            JOptionPane.showMessageDialog(this, "Invalid GPA", "Error", JOptionPane.ERROR_MESSAGE);
         return;
     }
     }//GEN-LAST:event_AddActionPerformed
