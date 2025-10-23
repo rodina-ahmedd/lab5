@@ -69,7 +69,10 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        CheckPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        CheckPass.setForeground(new java.awt.Color(255, 153, 204));
         CheckPass.setText("Check pass");
+        CheckPass.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CheckPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CheckPassActionPerformed(evt);
@@ -91,7 +94,7 @@ public class login extends javax.swing.JFrame {
                     .addComponent(textPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
                 .addGap(49, 49, 49)
                 .addComponent(CheckPass)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
