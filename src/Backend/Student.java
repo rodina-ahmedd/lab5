@@ -1,13 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Backend;
 
-/**
- *
- * @author mo
- */
+
 
 
 
@@ -23,14 +17,22 @@ import java.util.ArrayList;
 public class Student {
     
     private static final String FILENAME = "student.txt";
-
-    public static void addStudent(StudentDataBase student) throws IOException {
+    private ArrayList<StudentDataBase> students;
+    
+    public Student() throws IOException
+    {
+      this.students=loadStudentsFromFile();
+    }
+    
+    public  void addStudent(StudentDataBase student) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
             writer.write(student.Save());
             writer.newLine();
         } 
     }
-    public static ArrayList<StudentDataBase> loadStudentsFromFile() throws IOException {
+    
+    
+    private  ArrayList<StudentDataBase> loadStudentsFromFile() throws IOException {
         ArrayList<StudentDataBase> students = new ArrayList<>();
          try (FileReader fileReader = new FileReader(FILENAME);
         BufferedReader bufferedReader = new BufferedReader(fileReader)){
@@ -54,9 +56,13 @@ public class Student {
         }
         
     }
+         
+        
        
         
         
         return students;
     }
+    
+  
 }
