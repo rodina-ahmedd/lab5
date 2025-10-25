@@ -64,5 +64,112 @@ public class Student {
         return students;
     }
     
+    public void updateStudent(int id , String name , int age , String DP , double gpa) throws IOException
+    {
+        StudentDataBase found = null ; 
+        for (StudentDataBase std : students)
+        {
+            
+         if(std.getID()==id){
+             found = std ; 
+             break ;
+         }
+         
+        }
+        
+        if(found==null)
+            System.out.print("NO STUDENT WITH SUCH ID IS FOUND");
+        else {
+            found.setName(name);
+            found.setAge(age);
+            found.setDepartment(DP);
+            found.setGPA(gpa);
+    
+        saveStudentsToFile(FILENAME);
+        System.out.print("Student updated successfully");
+        }
+        
+    }
+    
+    public void DeleteStudent(int id) throws IOException
+    {
+        StudentDataBase found = null ;
+         for (StudentDataBase std : students)
+        {
+            
+         if(std.getID()==id){
+             found = std ; 
+             break ;
+         }
+        }
+         
+         if(found==null)
+            System.out.print("NO STUDENT WITH SUCH ID IS FOUND");
+        else {
+            students.remove(found);
+    
+        saveStudentsToFile(FILENAME);
+        System.out.print("Student removed successfully");
+        }
+         
+    }
+         
+    
+    public ArrayList<StudentDataBase> search(String key)
+    {
+     ArrayList<StudentDataBase> result = new ArrayList<>(); 
+     
+     for (StudentDataBase stu : students)
+     {
+         if(key==stu.getName()||Integer.parseInt(key)==stu.getID())
+         {
+             result.add(stu);
+         }
+     }
+     
+     return result ; 
+    }
+    
+    public void DisplaySearchresults(String key)
+    {
+        ArrayList<StudentDataBase> result = search (key);
+        if(result.isEmpty()){
+            System.out.print("No found student with search key : "+ key);
+            return;
+                    }
+        else {
+             for (StudentDataBase student : result) {
+            System.out.println(student.toTableFormat());
+        }
+        System.out.println("Found: " + result.size() + " students");
+        
+        }
+        
+        
+    }
+ 
+         
+         
+        
+        
+    
+    
+    private void saveStudentsToFile(String FILENAME) throws IOException
+    {
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME,true))){
+            
+           for(StudentDataBase st : students)
+           {
+               bw.write(st.Save());
+               bw.newLine();
+           }
+            
+        }
+        
+        catch(IOException e){
+            System.out.print("ERROR IN SAVING FILES");
+        }
+         }
+    
   
 }

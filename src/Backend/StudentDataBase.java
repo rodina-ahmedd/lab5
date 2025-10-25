@@ -16,7 +16,7 @@ public class StudentDataBase {
     private int age;
     private String gender;
     private String DP; 
-    private double gpa;
+    private final double gpa;
  
     
     public StudentDataBase (int id, String name, int age, String gender, String DP, double gpa) {
@@ -39,6 +39,11 @@ public class StudentDataBase {
     
     public String Save() {
         return id + "," + name + "," + age + "," + gender + "," + DP + "," + gpa  ;
+    }
+    
+    public String toTableFormat() {
+        return String.format("%-5d %-20s %-3d %-7s %-15s %.2f", 
+                           id,name, age, gender, DP, gpa);
     }
 }
 
