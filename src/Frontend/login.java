@@ -17,6 +17,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -39,7 +40,7 @@ public class login extends javax.swing.JFrame {
 
         login.setBackground(new java.awt.Color(204, 204, 204));
         login.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        login.setForeground(new java.awt.Color(102, 102, 255));
+        login.setForeground(new java.awt.Color(153, 153, 255));
         login.setText("Login");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,12 +49,12 @@ public class login extends javax.swing.JFrame {
         });
 
         UserName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        UserName.setForeground(new java.awt.Color(255, 153, 204));
+        UserName.setForeground(new java.awt.Color(153, 153, 255));
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         UserName.setText("User Name:");
 
         Password.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Password.setForeground(new java.awt.Color(255, 153, 204));
+        Password.setForeground(new java.awt.Color(153, 153, 255));
         Password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Password.setText("Password:");
 
@@ -70,7 +71,7 @@ public class login extends javax.swing.JFrame {
         });
 
         CheckPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        CheckPass.setForeground(new java.awt.Color(255, 153, 204));
+        CheckPass.setForeground(new java.awt.Color(153, 153, 255));
         CheckPass.setText("Check pass");
         CheckPass.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CheckPass.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +132,7 @@ public class login extends javax.swing.JFrame {
            }
            else
            {
-               JOptionPane.showMessageDialog(this, "Error");
+               JOptionPane.showMessageDialog(this, "Error invalid user name or password");
            }
     }//GEN-LAST:event_loginActionPerformed
 

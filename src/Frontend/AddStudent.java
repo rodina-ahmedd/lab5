@@ -17,6 +17,10 @@ public class AddStudent extends javax.swing.JPanel {
      */
     public AddStudent() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        optiongender.addItem("Select Gender");
+        optiongender.addItem("Male");
+        optiongender.addItem("Female");
     }
 
     /**
@@ -68,7 +72,7 @@ public class AddStudent extends javax.swing.JPanel {
         Gender.setForeground(new java.awt.Color(153, 153, 255));
         Gender.setText("Gender:");
 
-        optiongender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        optiongender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gender Selection", "Male", "Female" }));
         optiongender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 optiongenderActionPerformed(evt);
@@ -106,7 +110,7 @@ public class AddStudent extends javax.swing.JPanel {
         Add.setBackground(new java.awt.Color(204, 204, 204));
         Add.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Add.setForeground(new java.awt.Color(102, 102, 255));
-        Add.setText("Add");
+        Add.setText("Add Student");
         Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddActionPerformed(evt);
@@ -178,6 +182,7 @@ public class AddStudent extends javax.swing.JPanel {
 
     private void optiongenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optiongenderActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_optiongenderActionPerformed
 
     private void textstudentAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textstudentAgeActionPerformed
@@ -194,27 +199,41 @@ public class AddStudent extends javax.swing.JPanel {
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
-        String name=textstudentname.getText().trim();
-        String ageStr=textstudentAge.getText().trim();
-        String gender=optiongender.getSelectedItem().toString();
-        String department=textdepartment.getText().trim();
-        String gpaStr=textgpa.getText().trim();
-        if (name.isEmpty() || ageStr.isEmpty() || department.isEmpty() || gpaStr.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Please fill all fields!", "Error", JOptionPane.ERROR_MESSAGE);
-          return;
-    }
+        String name = textstudentname.getText().trim();
+        String ageStr = textstudentAge.getText().trim();
+        String gender = optiongender.getSelectedItem().toString();
+        String department = textdepartment.getText().trim();
+        String gpaStr = textgpa.getText().trim();
+        if (name.isEmpty() || ageStr.isEmpty() || department.isEmpty() || gpaStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         int age;
         double gpa;
-        try{
-            age=Integer.parseInt(ageStr);
-            gpa=Double.parseDouble(gpaStr);
-        } 
-        catch (NumberFormatException e){
+        try {
+            age = Integer.parseInt(ageStr);
+            gpa = Double.parseDouble(gpaStr);
+        } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Invalid Age", "Error", JOptionPane.ERROR_MESSAGE);
-        
+
             JOptionPane.showMessageDialog(this, "Invalid GPA", "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+            return;
+        }
+        if (gender.equals("Select Gender")){
+            JOptionPane.showMessageDialog(this, "Select a gender", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!StudentDatabase.isValidAge(age)) {
+            JOptionPane.showMessageDialog(this, "Age must be a number", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!StudentDatabase.isValidGpa(gpa)) {
+            JOptionPane.showMessageDialog(this, "GPA must be between 0 and 4", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        StudentDatabase db = new StudentDatabase("students.txt");
+        db.addStudent(name, age, gender, department, gpa);
+        JOptionPane.showMessageDialog(this, "Student added successfully");
     }//GEN-LAST:event_AddActionPerformed
 
 

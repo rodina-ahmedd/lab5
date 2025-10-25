@@ -8,13 +8,14 @@ package Frontend;
  *
  * @author mo
  */
-public class ViewStudent extends javax.swing.JPanel {
+public class ViewStudents extends javax.swing.JPanel {
 
     /**
      * Creates new form ViewStudent
      */
-    public ViewStudent() {
+    public ViewStudents() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

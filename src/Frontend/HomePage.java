@@ -15,6 +15,7 @@ public class HomePage extends javax.swing.JFrame {
      */
     public HomePage() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -34,7 +35,7 @@ public class HomePage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
 
-        AddButton.setBackground(new java.awt.Color(255, 204, 204));
+        AddButton.setBackground(new java.awt.Color(153, 153, 255));
         AddButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         AddButton.setForeground(new java.awt.Color(255, 255, 255));
         AddButton.setText("Add student");
@@ -45,7 +46,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        ViewButton.setBackground(new java.awt.Color(255, 204, 204));
+        ViewButton.setBackground(new java.awt.Color(153, 153, 255));
         ViewButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ViewButton.setForeground(new java.awt.Color(255, 255, 255));
         ViewButton.setText("View Student");
@@ -56,13 +57,13 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        SearchButton.setBackground(new java.awt.Color(255, 204, 204));
+        SearchButton.setBackground(new java.awt.Color(153, 153, 255));
         SearchButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         SearchButton.setForeground(new java.awt.Color(255, 255, 255));
         SearchButton.setText("Search Student");
         SearchButton.setBorderPainted(false);
 
-        DeleteButton.setBackground(new java.awt.Color(255, 204, 204));
+        DeleteButton.setBackground(new java.awt.Color(153, 153, 255));
         DeleteButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         DeleteButton.setForeground(new java.awt.Color(255, 255, 255));
         DeleteButton.setText("Delete Student");
