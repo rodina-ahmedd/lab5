@@ -223,15 +223,15 @@ public class AddStudent extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Select a gender", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (!StudentDatabase.isValidAge(age)) {
+        if (!StudentDataBase.isValidAge(age)) {
             JOptionPane.showMessageDialog(this, "Age must be a number", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (!StudentDatabase.isValidGpa(gpa)) {
+        if (!StudentDataBase.isValidGpa(gpa)) {
             JOptionPane.showMessageDialog(this, "GPA must be between 0 and 4", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        StudentDatabase db = new StudentDatabase("students.txt");
+        StudentDataBase db = new StudentDataBase("students.txt");
         db.addStudent(name, age, gender, department, gpa);
         JOptionPane.showMessageDialog(this, "Student added successfully");
     }//GEN-LAST:event_AddActionPerformed
