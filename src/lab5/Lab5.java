@@ -4,17 +4,22 @@
  */
 package lab5;
 
-/**
- *
- * @author mo
- */
-public class Lab5 {
+import Backend.StudentDataBase;
+import Controller.Controller;
 
-    /**
-     * @param args the command line arguments
-     */
+
+public class Lab5 {
+    
+    private static Controller control ;
+
     public static void main(String[] args) {
-        // TODO code application logic here
+      StudentDataBase Data  = new StudentDataBase();
+      
+      control = new Controller(Data);
+       
     }
     
+    public static Controller getController(){
+        return control;
+    }
 }
