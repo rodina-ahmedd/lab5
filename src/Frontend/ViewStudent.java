@@ -4,6 +4,12 @@
  */
 package Frontend;
 
+import Backend.Student;
+import Controller.Controller;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import lab5.Lab5;
+
 /**
  *
  * @author mo
@@ -15,6 +21,7 @@ public class ViewStudent extends javax.swing.JPanel {
      */
     public ViewStudent() {
         initComponents();
+        loadStudentData();
     }
 
     /**
@@ -31,25 +38,32 @@ public class ViewStudent extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Full Name", "Age", "Gender", "Department", "GPA"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,4 +76,18 @@ public class ViewStudent extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    private void loadStudentData() {
+        Controller control = Lab5.getController();
+        List<Student> students = control.getAllStudents();
+        
+        DefaultTableModel table = (DefaultTableModel) jTable1.getModel();
+        table.setRowCount(0);
+        
+        for (Student s : students) {
+        table.addRow(new Object[] {  s.getID(), s.getName(),   s.getAge(), s.getGender(), s.getDepartment(), s.getGPA()
+        });
+    }
+    }
+    
 }
