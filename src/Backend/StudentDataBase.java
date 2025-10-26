@@ -3,49 +3,60 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Backend;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
 
 /**
  *
  * @author mo
  */
+
+
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+
 public class StudentDataBase {
-     
     
-    private int id;
-    private String name;
-    private int age;
-    private String gender;
-    private String DP; 
-    private double gpa;
- 
-    
-    public StudentDataBase (int id, String name, int age, String gender, String DP, double gpa) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.DP = DP;
-        this.gpa = gpa;
+    private static final String FILENAME = "student.txt";
+
+    public static void addStudent(Student student) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILENAME, true))) {
+            writer.write(student.Save());
+            writer.newLine();
+        } 
     }
-
-
-    public int getID() { return id; }
-    public String getName() { return name; }
-    public int getAge() { return age; }
-    public String getGender() { return gender; }
-    public String getDepartment() { return DP; }
-    public double getGPA() { return gpa; }
-
-    
-    public String Save() {
-        return id + "," + name + "," + age + "," + gender + "," + DP + "," + gpa  ;
+    public static ArrayList<Student> loadStudentsFromFile() throws IOException {
+        ArrayList<Student> students = new ArrayList<>();
+         try (FileReader fileReader = new FileReader(FILENAME);
+        BufferedReader bufferedReader = new BufferedReader(fileReader)){
+        
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] parts = line.split(",");
+            
+            if (parts.length == 6) {
+                
+                int id = Integer.parseInt(parts[0]);
+                String name = parts[1];
+                int age = Integer.parseInt(parts[2]);
+                String gender = parts[3];
+                String DP = parts[4];
+                double gpa = Double.parseDouble(parts[5]);
+                
+                
+                students.add(new Student(id, name, age, gender, DP, gpa));
+            }
+        }
+        
+    }
+       
+        
+        
+        return students;
     }
 }
-
-
