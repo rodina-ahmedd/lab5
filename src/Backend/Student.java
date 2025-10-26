@@ -11,10 +11,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 
-/**
- *
- * @author mo
- */1
 public class Student {
 
     private int id;
